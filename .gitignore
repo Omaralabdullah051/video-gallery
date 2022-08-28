@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/lws-server/node_modules
+/lws-server
 /.pnp
 .pnp.js
 
