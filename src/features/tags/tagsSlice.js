@@ -1,5 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getTags } from "./tagsAPI";
+
+const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 const initialState = {
   tags: [],
@@ -8,10 +9,9 @@ const initialState = {
   error: "",
 };
 
-//* async thunk
+// async thunk
 export const fetchTags = createAsyncThunk("tags/fetchTags", async () => {
-  const tags = getTags();
-
+  const tags = await getTags();
   return tags;
 });
 
