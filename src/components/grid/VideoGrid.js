@@ -8,12 +8,14 @@ const VideoGrid = () => {
   const { videos, isLoading, isError, error } = useSelector(
     (state) => state.videos
   );
-  const { tags, search, pageNumber } = useSelector((state) => state.filter);
+  const { tags, search, pageNumber, author } = useSelector(
+    (state) => state.filter
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchVideos({ tags, search, pageNumber }));
-  }, [dispatch, tags, search, pageNumber]);
+    dispatch(fetchVideos({ tags, search, pageNumber, author }));
+  }, [dispatch, tags, search, pageNumber, author]);
 
   //* decide what we render in the UI
   let content;

@@ -4,6 +4,7 @@ const initialState = {
   tags: [],
   search: "",
   pageNumber: 1,
+  author: "",
 };
 
 const filterSlice = createSlice({
@@ -22,6 +23,7 @@ const filterSlice = createSlice({
     },
     searched: (state, action) => {
       state.search = action.payload;
+      state.pageNumber = 1;
     },
     changePageNumber: (state, action) => {
       state.pageNumber = action.payload;
@@ -30,6 +32,10 @@ const filterSlice = createSlice({
       state.tags = [];
       state.search = "";
       state.pageNumber = 1;
+      state.author = "";
+    },
+    authorFilter: (state, action) => {
+      state.author = action.payload;
     },
   },
 });
@@ -41,4 +47,5 @@ export const {
   searched,
   changePageNumber,
   resetFilter,
+  authorFilter,
 } = filterSlice.actions;
