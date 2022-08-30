@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getVideo } from "./videoAPI";
+import { updateLike } from "../likeUnlike/likeUnlikeAPI";
+import { updateUnlike } from "../likeUnlike/likeUnlikeAPI2";
 
 const initialState = {
   video: {},
@@ -14,6 +16,24 @@ export const fetchVideo = createAsyncThunk("video/fetchVideo", async (id) => {
 
   return video;
 });
+
+export const updateOverallLike = createAsyncThunk(
+  "like/video",
+  async ({ id, numberOfLikes }) => {
+    const updateLikes = updateLike({ id, numberOfLikes });
+
+    return updateLikes;
+  }
+);
+
+export const updateOverallUnLike = createAsyncThunk(
+  "unlike/video",
+  async ({ id, numberOfUnlikes }) => {
+    const updateUnlikes = updateUnlike({ id, numberOfUnlikes });
+
+    return updateUnlikes;
+  }
+);
 
 const videoSlice = createSlice({
   name: "video",
@@ -33,7 +53,13 @@ const videoSlice = createSlice({
         state.video = {};
         state.isError = true;
         state.error = action.error?.message;
-      });
+      })
+      .addCase(updateOverallLike.pending, () => {})
+      .addCase(updateOverallLike.fulfilled, () => {})
+      .addCase(updateOverallLike.rejected, () => {})
+      .addCase(updateOverallUnLike.pending, () => {})
+      .addCase(updateOverallUnLike.fulfilled, () => {})
+      .addCase(updateOverallUnLike.rejected, () => {});
   },
 });
 

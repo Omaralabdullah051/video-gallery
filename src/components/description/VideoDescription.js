@@ -2,7 +2,7 @@ import React from "react";
 import LikeUnlike from "./LikeUnlike";
 
 const VideoDescription = ({ video }) => {
-  const { title, date, description } = video;
+  const { title, date, description, likes, unlikes, id } = video;
   return (
     <div>
       <h1 class="text-lg font-semibold tracking-tight text-slate-800">
@@ -13,7 +13,7 @@ const VideoDescription = ({ video }) => {
           Uploaded on {date}
         </h2>
 
-        <LikeUnlike />
+        <LikeUnlike likes={likes} unlikes={unlikes} id={id} />
       </div>
       <div class="mt-4 text-sm text-[#334155] dark:text-slate-400">
         {description}
