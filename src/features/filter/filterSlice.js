@@ -26,9 +26,19 @@ const filterSlice = createSlice({
     changePageNumber: (state, action) => {
       state.pageNumber = action.payload;
     },
+    resetFilter: (state, action) => {
+      state.tags = [];
+      state.search = "";
+      state.pageNumber = 1;
+    },
   },
 });
 
 export default filterSlice.reducer;
-export const { tagSelected, tagRemoved, searched, changePageNumber } =
-  filterSlice.actions;
+export const {
+  tagSelected,
+  tagRemoved,
+  searched,
+  changePageNumber,
+  resetFilter,
+} = filterSlice.actions;
