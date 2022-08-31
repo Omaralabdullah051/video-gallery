@@ -24,7 +24,7 @@ const Search = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        className="outline-none border-none mr-2"
+        className="outline-none border-none mr-2 w-20"
         type="search"
         name="search"
         placeholder="Search"

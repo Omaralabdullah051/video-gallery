@@ -20,7 +20,7 @@ const Tags = () => {
         ))}
       </div>
       <div
-        className="bg-blue-600 text-white px-4 py-1 rounded cursor-pointer w-32 text-center absolute right-0 2xl:right-28 mt-4"
+        className="bg-blue-600 text-white px-2 lg:px-4 py-1 rounded cursor-pointer w-24 lg:w-32 text-center absolute right-0 2xl:right-28 mt-4 mr-2"
         onClick={() => dispatch(resetFilter())}
       >
         Reset Filter

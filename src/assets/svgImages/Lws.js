@@ -5,7 +5,7 @@ const Lws = () => {
     <svg
       viewBox="0 0 1586 512"
       fill="none"
-      className="h-10"
+      className="h-8 md:h-10"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_850_283)">
